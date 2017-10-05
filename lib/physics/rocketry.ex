@@ -33,6 +33,11 @@ defmodule Physics.Rocketry do
       |> seconds_to_hours
   end
 
+  def height_for_term(term) do
+    newtons_gravitational_constant * earth.mass * (term |> squared) / (4 * (:math.pi |> squared))
+    |> nth_root(3)
+  end
+
   defp orbital_radius(height) do
     earth.radius + (height |> to_meters)
   end

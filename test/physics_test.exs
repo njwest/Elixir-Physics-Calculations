@@ -13,4 +13,5 @@ defmodule PhysicsTest do
       |> Physics.Rocketry.escape_velocity
     assert ev = 1.0
   end
+
 end
