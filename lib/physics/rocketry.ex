@@ -1,5 +1,5 @@
 defmodule Physics.Rocketry do
-
+  require IEx
   import Converter
   import Calcs
   import Physics.Laws
@@ -24,7 +24,7 @@ defmodule Physics.Rocketry do
   end
 
   def orbital_acceleration(height) do
-    orbital_speed(height) |> squared / orbital_radius(height)
+    (orbital_speed(height) |> squared) / orbital_radius(height)
   end
 
   def orbital_term(height) do
@@ -43,6 +43,7 @@ defmodule Physics.Rocketry do
   end
 
   defp calculate_escape(%{mass: mass, radius: radius}) do
+    IEx.pry
     2 * newtons_gravitational_constant * mass / radius
     |> :math.sqrt
   end
